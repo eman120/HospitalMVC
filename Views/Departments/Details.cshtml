@@ -1,0 +1,22 @@
+﻿@model Department
+
+<h1>Details</h1>
+
+<dl>
+    <dt class="col-1">@Html.DisplayNameFor(d => d.Name)</dt>
+    <dd class="col-11">@Model.Name</dd>
+
+    <dt class="col-1">@Html.DisplayNameFor(d => d.Description)</dt>
+    <dd class="col-11">@Model.Description</dd>
+</dl>
+
+<div class="list-group col-3">
+    <h4>Patients</h4>
+    @foreach (var item in Model.Patients)
+    {
+        <a asp-controller="Patients" asp-action="Details" asp-route-id="@item.Id">@item.FullName (@item.Age)</a>
+        <br />
+    }
+</div>
+<br />
+<a asp-controller="Departments" asp-action="Index" class="btn btn-dark">Back to list</a>

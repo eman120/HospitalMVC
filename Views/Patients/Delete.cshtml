@@ -1,0 +1,51 @@
+﻿@model Patient
+@using System.Globalization
+
+<h3>Are you sure you want to delete this?</h3>
+
+<dl>
+    <dt>@Html.DisplayNameFor(p => p.FullName) :</dt>
+    <dd>@Model.FullName</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.Age) :</dt>
+    <dd>@Model.Age</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.Diagnosis) :</dt>
+    <dd>@Model.Diagnosis</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.Treatment) : </dt>
+    <dd>@Model.Treatment</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.Notes) : </dt>
+    <dd>@Model.Notes</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.BirthDate)</dt>
+    <dd>@Model.BirthDate.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.ComingDate)</dt>
+    <dd>@Model.ComingDate.ToShortDateString()</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.ComingTime)</dt>
+    <dd>@Model.ComingTime.ToShortTimeString()</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.Reciept) : </dt>
+    <dd>@Model.Reciept</dd>
+
+    <dt>@Html.DisplayNameFor(p => p.NationalNumberCard)</dt>
+    <dd>
+        <img src=@("~/images/" + Model.NationalNumberCard) width="250" asp-append-version="true" />
+    </dd>
+
+    <dt>@Html.DisplayNameFor(p => p.PrescriptionImageName)</dt>
+    <dd>
+        <img src="data:image/jpeg;base64,@Model.PrescriptionImageName" width="250" />
+    </dd>
+</dl>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<br />
+<a asp-controller="Patients" asp-action="Index" class="btn btn-dark">Back to list</a>

@@ -1,0 +1,84 @@
+﻿@model Patient
+
+<h1>Create</h1>
+
+<form method="post" asp-action="Create" asp-controller="Patients" enctype="multipart/form-data">
+
+    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+    <div class=" row">
+        <label asp-for="FullName" class="col-2"></label>
+        <input asp-for="FullName" class=" col-4 form-control " />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <br />
+    <div class=" row">
+        <label asp-for="Age" class="col-2"></label>
+        <input asp-for="Age" type="number" class=" col-4 form-control " />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <br />
+    <div class=" row">
+        <label asp-for="Diagnosis" class="col-2"></label>
+        <input asp-for="Diagnosis" class=" col-4 form-control" />
+        <span asp-validation-for="Diagnosis" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div class=" row">
+        <label asp-for="Treatment" class="col-2"></label>
+        <input asp-for="Treatment" class=" col-4 form-control" />
+        <span asp-validation-for="Treatment" class="text-danger"></span>
+    </div>
+    <br />
+    <div class=" row">
+        <label asp-for="Notes" class="col-2"></label>
+        <input asp-for="Notes" class=" col-4 form-control" />
+    </div>
+    <br />
+    <div class="row">
+        <label asp-for="DepartmentId" class="col-2"></label>
+        <select asp-for="DepartmentId" asp-items="@ViewBag.All_Department" class="form-control col-4">
+            <option disabled selected>Select_Department</option>
+        </select>
+    </div>
+    <br />
+    <div class="row">
+        <label asp-for="BirthDate" class="col-2"></label>
+        <input asp-for="BirthDate" class="col-4 form-control" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="row">
+        <label asp-for="ComingDate" class="col-2"></label>
+        <input asp-for="ComingDate" class="col-4 form-control" />
+        <span asp-validation-for="ComingDate" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="row">
+        <label asp-for="ComingTime" class="col-2"></label>
+        <input asp-for="ComingTime" class="col-4 form-control" />
+        <span asp-validation-for="ComingTime" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="row">
+        <label asp-for="Reciept" class="col-2"></label>
+        <input asp-for="Reciept" type="number" class="col-4 form-control" />
+        <span asp-validation-for="Reciept" class="text-danger"></span>
+    </div>
+    <br />
+    <div class=" row">
+        <label asp-for="NationalNumberCard" class="col-2"></label>
+        <input asp-for="NationalNumberCardFile" accept="image/*" class=" col-4" />
+    </div>
+    <br />
+    <div class=" row">
+        <label asp-for="PrescriptionImageName" class="col-2"></label>
+        <input asp-for="PrescriptionImageFile" accept="image/*" class=" col-4" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-dark">Create </button>
+</form>
+
+<br />
+
+<a asp-controller="Patients" asp-action="Index" class="btn btn-dark">Back to list</a>

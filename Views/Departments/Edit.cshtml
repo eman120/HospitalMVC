@@ -1,0 +1,27 @@
+﻿@model Department
+
+<h1>Edit</h1>
+
+<form method="post" asp-action="Create" asp-controller="Departments">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class=" row">
+        <label asp-for="Name" class="col-2"></label>
+        <input asp-for="Name" class=" col-4 form-control " />
+    </div>
+    <br />
+    <div class=" row">
+        <label asp-for="Description " class="col-2"></label>
+        <input asp-for="Description " class=" col-4 form-control " />
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+
+<br />
+
+<a asp-controller="Departments" asp-action="Index" class="btn btn-dark">Back to list</a>
